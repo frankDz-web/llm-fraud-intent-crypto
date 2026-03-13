@@ -29,3 +29,21 @@ Then edit the parameters in the `__main__` block of `run_labeling.py`:
 - `OUTPUT_FILE`: path for the output CSV with labels
 - `MODEL_NAME`: Ollama model to use
 - `PROMPT_CHOICE`: `baseline`, `domain_specific`, or `intent_focused`
+
+
+### Model Selection and Extensions
+
+The script trains three baseline machine learning classifiers:
+- Multinomial Naive Bayes
+- Logistic Regression
+- Random Forest
+
+After evaluating their performance on the test set, the pipeline automatically selects the best-performing model based on the F1-score and saves it together with the TF-IDF vectorizer.
+
+This implementation is intended as a **baseline example**. Users are encouraged to further improve performance by:
+
+- tuning model hyperparameters (e.g., using grid search or cross-validation),
+- experimenting with additional machine learning models,
+- modifying the TF-IDF configuration or feature extraction strategy.
+
+Depending on the specific classification task and dataset characteristics, other classifiers (e.g., SVM, gradient boosting, or neural models) may yield better results.
